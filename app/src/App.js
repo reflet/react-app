@@ -1,23 +1,20 @@
-import logo from './logo.svg';
-import './App.css';
+import { useContext } from 'react';
+import { AdminFlagContext } from './components/providers/AdminFlagProvider';
+
+import Card from './components/Card';
 
 function App() {
+  // 管理者フラグ (Context内のisAdminと更新関数)
+  const { isAdmin, setIsAdmin } = useContext(AdminFlagContext);
+
+  // [切り替え] 押下時
+  const onClickSwitch = () => setIsAdmin(!isAdmin);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <span>{isAdmin ? '管理者です' : '管理者以外です'}</span>
+      <button onClick={onClickSwitch}>切り替え</button>
+      <Card />
     </div>
   );
 }

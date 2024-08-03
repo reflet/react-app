@@ -6,7 +6,7 @@ React.jsを学習するために作成したリポジトリです。
 
 * [Node.js 20.x](https://nodejs.jp/)  
   ※ Reactの開発に必要なのでNode.jsを設置しています  
-* [nginx 20.x](https://nginx.org/en/)  
+* [nginx](https://nginx.org/en/)  
   ※ ビルド後の静的ファイルの動作確認のためにWebサーバーを設置しています  
 
 ## 前提条件 ##
@@ -22,6 +22,7 @@ React.jsを学習するために作成したリポジトリです。
 ```bash
 $ mkdir -p ~/workspace & cd ~/workspace
 $ git clone git@github.com:reflet/react-app.git
+$ cd react-typescript
 ```
 
 ## Dockerイメージ/コンテナ ##

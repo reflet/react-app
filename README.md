@@ -86,7 +86,65 @@ $ docker-compose down -v
 $ docker-compose exec node npm install {ライブラリ名}
 ```
 
+```bash
+# 例) SASS
+$ docker-compose exec node npm install sass
+
+# 例) Styled JSX
+$ docker-compose exec node npm install styled-jsx
+
+# 例) Styled Components
+$ docker-compose exec node npm install styled-components
+
+# 例) Emotion
+$ docker-compose exec node npm install @emotion/react @emotion/styled
+
+# 例) Tailwind CSS
+$ docker-compose exec node npm install -D tailwindcss
+$ docker-compose exec node npx tailwindcss init
+```
+
+```bash
+# 例) npm package の脆弱性対応
+$ docker-compose exec node npm audit
+$ docker-compose exec node npm audit report
+$ docker-compose exec node npm audit fix
+$ docker-compose exec node npm audit fix --force
+```
+
+```bash
+# 依存関係ツリーを表示する
+$ docker-compose exec node npm ls {パッケージ}
+```
+
 # 備考 #
+## コンポーネントライブラリ ##
+コンポーネントは１から作らずにライブラリを使ってベースを作る。  
+
+* Tailwind製 Headless UI  
+  ※ https://headlessui.com/  
+  ※ https://reffect.co.jp/html/headless-ui
+
+* Chakra UI  
+  ※ https://v2.chakra-ui.com/  
+
+* MUI (Material UI)  
+  https://mui.com/material-ui/getting-started/installation/  
+
+* RadixUI  
+  https://www.radix-ui.com/  
+
+* React Aria  
+  https://react-spectrum.adobe.com/react-aria/  
+
+* Ark UI  
+  https://ark-ui.com/  
+
+* Mantie UI  
+  https://mantine.dev/  
+  https://ui.mantine.dev/
+  https://qiita.com/ot_RikuOta/items/0ddf5926270c1f019d20  
+
 ## ライブラリのコピー ##
 
 IDEなどの兼ね合いで、npmコマンドでインストールしたライブラリをローカルにコピーしたい場合は下記のようにする。

@@ -92,6 +92,7 @@ $ docker-compose exec node npm install {ライブラリ名}
 IDEなどの兼ね合いで、npmコマンドでインストールしたライブラリをローカルにコピーしたい場合は下記のようにする。
 
 ```bash
+$ rm -rf ./app/node_modules/* ./app/node_modules/.*
 $ docker cp $(docker-compose ps -q node):/usr/src/app/node_modules ./app/
 ```
 

@@ -1,25 +1,32 @@
-import logo from './logo.svg';
-import './App.css';
+import { useFetchBooks } from './hooks/useFetchBooks';
 
 function App() {
+  const { bookList, isLoading, isError, onClickFetchBook } = useFetchBooks();
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <button onClick={onClickFetchBook}>書籍検索</button>
+
+      {/* エラーの場合は、メッセージを表示する */}
+      {isError && <p style={{ color: "red" }}>エラーが発生しました。</p>}
+
+      {/* ローディング中は表示を切り替える */}
+      <ul>
+        {isLoading ? (
+          <li>
+            <p>データ取得中です</p>
+          </li>
+        ) : (
+          bookList.map(book => (
+            <li key={book.id}>
+              <img src={book.image} alt={book.title} />
+              <p>{ `[${book.publishedDate}] ${book.title} (${book.publisher})` }</p>
+              <p>{ book.isbn }</p>
+            </li>
+          ))
+        )}
+      </ul>
     </div>
   );
 }
-
 export default App;
